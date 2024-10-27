@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote - e-Voting</title>
+    <link rel="stylesheet" href="vote.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo e-Voting">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="elections.html">Élections</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="results.html" class="active">Résultats</a></li>
+                <li><a href="profile.html" class="active">Mon Profil</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section de vote -->
+    <section class="vote-section">
+        <h1>Votez pour votre candidat préféré</h1>
+        <div class="candidates-list">
+
+            <!-- Candidat 1 : Mamadou Dian Barry -->
+            <div class="candidate">
+                <img src="candidat1.jpg" alt="Mamadou Dian Barry">
+                <h2>Mamadou Dian Barry</h2>
+                <p>Mamadou Dian Barry est un leader reconnu pour son expertise en technologie et son engagement envers l'innovation et l'inclusion numérique.</p>
+                <button onclick="openModal('Mamadou Dian Barry')">Voter pour Mamadou Dian Barry</button>
+            </div>
+
+            <!-- Candidat 2 : Abdoulaye Sène -->
+            <div class="candidate">
+                <img src="candidat2.jpg" alt="Abdoulaye Sène">
+                <h2>Abdoulaye Sène</h2>
+                <p>Abdoulaye Sène est un défenseur des droits sociaux, prônant l'amélioration des conditions de travail et le renforcement des services publics.</p>
+                <button onclick="openModal('Abdoulaye Sène')">Voter pour Abdoulaye Sène</button>
+            </div>
+
+            <!-- Candidat 3 : Elhadj Dia -->
+            <div class="candidate">
+                <img src="candidat3.jpg" alt="Elhadj Dia">
+                <h2>Elhadj Dia</h2>
+                <p>Elhadj Dia est un entrepreneur et homme d'affaires engagé dans le développement durable et l'innovation écologique pour une économie plus verte.</p>
+                <button onclick="openModal('Elhadj Dia')">Voter pour Elhadj Dia</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal de confirmation -->
+    <div id="voteModal" class="modal">
+        <div class="modal-content">
+            <p id="confirmationMessage"></p>
+            <button id="confirmVote" class="btn-confirm">Confirmer</button>
+            <button id="cancelVote" class="btn-cancel">Annuler</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 e-Voting. Tous droits réservés.</p>
+    </footer>
+    <!-- Notification de succès -->
+<div id="notification" class="notification">
+    <p id="notificationMessage"></p>
+</div>
+
+
+    <!-- Script pour gérer le modal -->
+    <script>
+        const modal = document.getElementById('voteModal');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        const confirmVoteButton = document.getElementById('confirmVote');
+        const cancelVoteButton = document.getElementById('cancelVote');
+
+        // function openModal(candidate) {
+        //     confirmationMessage.textContent = "Voulez-vous vraiment voter pour " + candidate + " ?";
+        //     modal.style.display = "block";
+            
+        //     // Gérer la confirmation du vote
+        //     confirmVoteButton.onclick = function() {
+        //         alert("Votre vote pour " + candidate + " a été pris en compte.");
+        //         modal.style.display = "none"; // Fermer le modal après confirmation
+        //     };
+
+        //     // Gérer l'annulation du vote
+        //     cancelVoteButton.onclick = function() {
+        //         modal.style.display = "none"; // Fermer le modal si l'utilisateur annule
+        //     };
+        // }
+
+        // // Fermer le modal si l'utilisateur clique en dehors du modal
+        // window.onclick = function(event) {
+        //     if (event.target == modal) {
+        //         modal.style.display = "none";
+        //     }
+        // }
+        function openModal(candidate) {
+    confirmationMessage.textContent = "Voulez-vous vraiment voter pour " + candidate + " ?";
+    modal.style.display = "block";
+    
+    confirmVoteButton.onclick = function() {
+        // Appeler la fonction pour afficher la notification de succès
+        showNotification("Votre vote pour " + candidate + " a été pris en compte.");
+        modal.style.display = "none";
+    };
+
+    cancelVoteButton.onclick = function() {
+        modal.style.display = "none";
+    };
+}
+
+// Fonction pour afficher la notification de succès
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    notificationMessage.textContent = message;
+    
+    notification.classList.add('show'); // Affiche la notification
+
+    // Cache la notification après 3 secondes
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
+
+
+    </script>
+    
+
+</body>
+
+</html>

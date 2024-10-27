@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - e-Voting</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo e-Voting">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="elections.html">Élections</a></li>
+                <li><a href="profile.html">Mon Profil</a></li>
+                <li><a href="results.html">Résultats</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section de contact -->
+    <section class="contact-section">
+        <h1>Contactez-nous</h1>
+        <p>Pour toute question ou suggestion, veuillez nous contacter en remplissant le formulaire ci-dessous.</p>
+
+        <form id="contact-form" onsubmit="handleContact(event)">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 e-Voting. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        async function handleContact(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (response.ok) {
+                    alert("Message envoyé avec succès !");
+                    document.getElementById('contact-form').reset();
+                } else {
+                    alert("Erreur lors de l'envoi du message.");
+                }
+            } catch (error) {
+                console.error("Erreur réseau :", error);
+                alert("Impossible d'envoyer le message.");
+            }
+        }
+    </script>
+</body>
+
+</html>

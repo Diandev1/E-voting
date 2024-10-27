@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification du Code - e-Voting</title>
+    <link rel="stylesheet" href="verify.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo e-Voting">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="elections.html">Élections</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="results.html" class="active">Résultats</a></li>
+                <li><a href="profile.html" class="active">Mon Profil</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="verify-section">
+        <div class="verify-container">
+            <h1>Vérification du Code</h1>
+            <p>Veuillez entrer le code que vous avez reçu (Simulé : **123456**).</p>
+            <form id="verify-form">
+                <label for="code">Code de vérification</label>
+                <input type="text" id="code" name="code" placeholder="Entrez le code" required>
+
+                <button type="button" onclick="verifyCode()">Vérifier</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 e-Voting. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function verifyCode() {
+            // Simuler la vérification du code
+            const inputCode = document.getElementById('code').value;
+            const correctCode = "123456"; // Code prédéfini
+
+            if (inputCode === correctCode) {
+                // Si le code est correct, rediriger vers la page de vote
+                window.location.href = "vote.html";
+            } else {
+                // Sinon, afficher une alerte d'erreur
+                alert("Code incorrect, veuillez réessayer.");
+            }
+        }
+    </script>
+    <!-- Backend -->
+    <!-- <form id="verify-form" onsubmit="handleVerification(event)">
+        <label for="code">Code de vérification</label>
+        <input type="text" id="code" name="code" placeholder="Entrez le code" required>
+    
+        <button type="submit">Vérifier</button>
+    </form>
+    
+    <script>
+        async function handleVerification(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            const code = document.getElementById('code').value;
+    
+            try {
+                const response = await fetch('/api/verify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code })
+                });
+    
+                if (response.ok) {
+                    alert("Code vérifié avec succès !");
+                    window.location.href = "vote.html"; // Redirection vers la page de vote
+                } else {
+                    alert("Code incorrect. Veuillez réessayer.");
+                }
+            } catch (error) {
+                console.error("Erreur réseau :", error);
+                alert("Impossible de vérifier le code.");
+            }
+        }
+    </script> -->
+    
+</body>
+
+</html>

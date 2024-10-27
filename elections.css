@@ -1,0 +1,165 @@
+/* Style global */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* En-tête */
+header {
+    background-color: #32404d;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #0f7dd1;
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+
+/* Section des élections */
+.elections {
+    padding: 40px;
+    background-color: white;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Pour s'assurer que ça s'adapte aux petits écrans */
+}
+
+.election-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.election-item {
+    background-color: #e8e8e8;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.election-item:hover {
+    transform: translateY(-5px);
+    background-color: #d1d1d1;
+}
+
+.election-item h2 {
+    margin-bottom: 10px;
+    color: #1e90ff;
+}
+
+button {
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0f7dd1;
+    transform: scale(1.05);
+}
+
+/* Pied de page */
+footer {
+    background-color: #32404d;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Afficher le menu hamburger sur les petits écrans */
+    }
+
+    nav ul {
+        display: none; /* Masquer le menu sur mobile par défaut */
+        flex-direction: column;
+        align-items: center;
+        background-color: #1e90ff;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1000;
+    }
+
+    nav ul.active {
+        display: flex; /* Afficher le menu en colonne lorsque la classe 'active' est ajoutée */
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        padding: 10px;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .elections,
+    .election-list {
+        width: 100%;
+    }
+
+    .election-list {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+}

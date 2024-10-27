@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Élections - e-Voting</title>
+    <link rel="stylesheet" href="elections.css">
+</head>
+
+<body>
+    <!-- En-tête de la page avec le logo et le menu de navigation -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo e-Voting">
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="elections.html">Élections</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="results.html" class="active">Résultats</a></li>
+                <li><a href="profile.html" class="active">Mon Profil</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section des élections -->
+    <!-- Section des élections en cours -->
+<section class="elections">
+    <h1>Élections en cours</h1>
+    <div class="election-list">
+        <div class="election-item">
+            <h2>Élection Présidentielle 2024</h2>
+            <p>Date de début : 1er Janvier 2024</p>
+            <!-- Redirection vers la page d'inscription -->
+            <button onclick="window.location.href='signup.html';">Voter</button>
+        </div>
+        <div class="election-item">
+            <h2>Élection des Représentants 2024</h2>
+            <p>Date de début : 15 Février 2024</p>
+            <!-- Redirection vers la page d'inscription -->
+            <button onclick="window.location.href='signup.html';">Voter</button>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 e-Voting. Tous droits réservés.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function voteNow() {
+            alert('Redirection vers la page de vote...');
+        }
+
+        const menuToggle = document.getElementById('mobile-menu');
+        const nav = document.querySelector('nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+    <!-- Backend -->
+    <!-- <section class="elections">
+        <h1>Élections en cours</h1>
+        <div id="election-list" class="election-list"> -->
+            <!-- Les élections seront chargées ici -->
+        <!-- </div>
+    </section> -->
+    
+    <!-- <script>
+        async function loadElections() {
+            try {
+                const response = await fetch('/api/elections');
+                if (response.ok) {
+                    const elections = await response.json();
+                    const electionList = document.getElementById('election-list');
+                    
+                    // Génère dynamiquement la liste des élections
+                    elections.forEach(election => {
+                        const electionItem = document.createElement('div');
+                        electionItem.className = 'election-item';
+                        electionItem.innerHTML = `
+                            <h2>${election.title}</h2>
+                            <p>Date de début : ${election.startDate}</p>
+                            <button onclick="window.location.href='vote.html?electionId=${election.id}'">Voter</button>
+                        `;
+                        electionList.appendChild(electionItem);
+                    });
+                } else {
+                    console.error("Erreur lors du chargement des élections.");
+                }
+            } catch (error) {
+                console.error("Erreur réseau :", error);
+            }
+        }
+    
+        loadElections(); // Charger les élections au chargement de la page
+    </script> -->
+    
+
+</body>
+
+</html>

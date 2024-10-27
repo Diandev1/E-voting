@@ -1,0 +1,283 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style global */
+body {
+    display: flex; /* Utiliser Flexbox */
+    flex-direction: column; /* Alignement en colonne */
+    min-height: 100vh; /* Hauteur minimale de 100% de la fenêtre */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #f4f4f484;
+    color: #333;
+}
+
+/* En-tête */
+header {
+    background-color: #32404d;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Logo */
+.logo img {
+    height: 70px;
+}
+
+/* Menu hamburger */
+.menu-toggle {
+    display: none; /* Masquer par défaut */
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto; /* Éloigner le menu hamburger du logo */
+}
+
+/* Barres du menu hamburger */
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Navigation */
+nav {
+    flex-grow: 1; /* Permet de prendre tout l'espace disponible */
+    text-align: right; /* Aligner le texte à droite */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav ul li a:hover {
+    background-color: #0f7dd1;
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+
+/* Sections */
+.elections {
+    padding: 40px;
+    background-color: rgb(255, 255, 255);
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.election-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.election-item {
+    background-color: #e8e8e8;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.election-item:hover {
+    transform: translateY(-5px);
+    background-color: #32404d;
+}
+
+.election-item h2 {
+    margin-bottom: 10px;
+    color: #1e90ff;
+}
+.election-item h2:hover {
+    margin-bottom: 10px;
+    color: white;
+}
+
+button {
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0f7dd1;
+    transform: scale(1.05);
+}
+
+.advantages {
+    text-align: center;
+    padding: 20px;
+    background-color: #68aec584;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Stylisation des balises H1 et P */
+h1 {
+    color: #1e90ff; /* Couleur bleue */
+    font-size: 2.5rem; /* Taille de police plus grande */
+    text-align: center; /* Centrer le texte */
+    margin: 20px 0; /* Espacement vertical */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Ombre du texte */
+    font-weight: bold; /* Mettre le texte en gras */
+    text-transform: uppercase; /* Mettre le texte en majuscules */
+}
+
+h2 {
+    color: #333; /* Couleur pour les sous-titres */
+    font-size: 1.8rem; /* Taille de police pour h2 */
+    margin: 15px 0; /* Espacement vertical */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Ombre du texte */
+}
+
+
+p {
+    color: white; /* Couleur du texte */
+    font-size: 1.rem; /* Taille de police */
+    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
+    margin: 15px 0; /* Espacement vertical */
+    text-align: justify; /* Justifier le texte */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Ombre du texte */
+}
+/* Section des avantages avec Flexbox */
+.advantages-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.advantages-content .text {
+    width: 60%; /* Largeur du texte à 60% */
+    text-align: left; /* Aligner le texte à gauche */
+}
+
+.advantages-content .image {
+    width: 35%; /* Largeur de l'image à 35% */
+}
+
+.advantages-content .image img {
+    width: 100%; /* Image responsive */
+    height: auto;
+    border-radius: 8px; /* Ajouter des coins arrondis */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Ajouter une ombre douce */
+}
+
+/* Responsive - Réorganiser en colonne sur les petits écrans */
+@media (max-width: 768px) {
+    .advantages-content {
+        flex-direction: column; /* Empiler le texte et l'image sur mobile */
+        text-align: center;
+    }
+
+    .advantages-content .text,
+    .advantages-content .image {
+        width: 100%; /* Prendre toute la largeur */
+    }
+
+    .advantages-content .image {
+        margin-top: 20px; /* Ajouter un espacement au-dessus de l'image sur mobile */
+    }
+}
+
+
+/* Responsive - Réorganiser en colonne sur les petits écrans */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Afficher le menu hamburger sur les petits écrans */
+        justify-content: space-around;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    nav ul {
+        display: none; /* Cacher le menu par défaut */
+    }
+
+    .advantages-content .text,
+    .advantages-content .image {
+        width: 100%; /* Prendre toute la largeur */
+    }
+
+    .advantages-content .image {
+        margin-top: 20px; /* Ajouter un espacement au-dessus de l'image */
+    }
+}
+
+/* Styles Responsives */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Afficher le menu hamburger sur mobile */
+        margin-left: auto; /* Éloigner le menu hamburger du logo */
+    }
+
+    nav {
+        display: none; /* Masquer le menu par défaut */
+    }
+
+    nav.active {
+        display: block; /* Afficher le menu quand 'active' */
+        position: absolute; /* Positionner le menu en absolu */
+        top: 60px; /* Ajuster la position */
+        right: 0; /* Alignement à droite */
+         /* Fond bleu pour le menu */
+        width: 100%; /* Largeur pleine */
+        padding: 10px 0; /* Espacement vertical */
+        z-index: 1000; /* S'assurer qu'il soit au-dessus des autres éléments */
+    }
+
+    nav ul {
+        flex-direction: column; /* Afficher les liens de manière verticale */
+    }
+
+    nav ul li {
+        text-align: center; /* Centrer le texte */
+    }
+
+    nav ul li a {
+        padding: 10px; /* Espacement pour chaque lien */
+        display: block; /* Afficher chaque lien en bloc */
+    }
+
+    .election-list {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .elections, .advantages {
+        padding: 20px; /* Réduire l'espacement sur mobile */
+    }
+}
+
+
+/* Pied de page*/
+footer{
+    background-color: #32404d;
+}
+footer p{
+    text-align: center;
+}

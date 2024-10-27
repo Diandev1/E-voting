@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Accueil - e-Voting</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- En-tête de la page avec le logo et le menu de navigation -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo e-Voting">
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="elections.html">Élections</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="results.html" class="active">Résultats</a></li>
+                <li><a href="profile.html" class="active">Mon Profil</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section des élections en cours -->
+    <!-- <section class="elections">
+        <h1>Élections en cours</h1>
+        <div class="election-list">
+            <div class="election-item" aria-labelledby="presidential-election">
+                <h2 id="presidential-election">Élection Présidentielle 2025</h2>
+                <p>Date de début : 1er Janvier 2025</p>
+                <button aria-label="Voter pour l'élection présidentielle" onclick="voteNow()">Voter</button>
+            </div>
+            <div class="election-item" aria-labelledby="representatives-election">
+                <h2 id="representatives-election">Élection des représentants</h2>
+                <p>Date de début : 15 Février 2025</p>
+                <button aria-label="Voter pour l'élection des représentants" onclick="voteNow()">Voter</button>
+            </div>
+        </div>
+    </section> -->
+    <!-- Section des élections en cours -->
+<section class="elections">
+    <h1>Élections en cours</h1>
+    <div class="election-list">
+        <div class="election-item">
+            <h2>Élection Présidentielle 2024</h2>
+            <p>Date de début : 1er Janvier 2024</p>
+            <!-- Redirection directe vers la page de vote sans confirmation -->
+            <button onclick="window.location.href='vote.html';">Voter</button>
+        </div>
+        <div class="election-item">
+            <h2>Élection des Représentants 2024</h2>
+            <p>Date de début : 15 Février 2024</p>
+            <!-- Redirection directe vers la page de vote sans confirmation -->
+            <button onclick="window.location.href='vote.html';">Voter</button>
+        </div>
+    </div>
+</section>
+
+<!-- Section des avantages -->
+<section class="advantages">
+    <h2>Avantages du vote décentralisé</h2>
+    <div class="advantages-content">
+        <div class="text">
+            <p>Le vote décentralisé utilise la technologie blockchain pour garantir que chaque vote est enregistré de manière immuable. 
+            Cela signifie que les électeurs peuvent vérifier que leur vote a été compté sans risque de falsification. 
+            <br><br>
+            Les systèmes de vote décentralisés sont généralement moins vulnérables aux attaques informatiques. 
+            Les données sont dispersées sur plusieurs nœuds, ce qui rend très difficile leur manipulation ou leur suppression.
+            <br><br>
+            Grâce à la technologie numérique, le vote décentralisé permet aux électeurs de voter de n'importe où et à tout moment. 
+            Cela peut réduire les obstacles pour les électeurs éloignés ou ceux ayant des contraintes de mobilité.
+            <br><br>
+            En rendant le processus de vote plus accessible et plus transparent, on peut encourager davantage de citoyens à s'engager dans le processus démocratique.
+        </div>
+        <div class="image">
+            <img src="vote-decentralise.png" alt="Image vote décentralisé">
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 e-Voting. Tous droits réservés.</p>
+    </footer>
+    <script>
+        // Fonction pour voter (Simule une redirection vers la page de vote)
+        function voteNow() {
+            alert('Redirection vers la page de vote...');
+            window.location.href = 'vote.html';
+        }
+
+        // Fonction pour afficher/cacher le menu hamburger
+        const menuToggle = document.getElementById('mobile-menu');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active'); // Ajoute ou retire la classe active
+        });
+    </script>
+    
+
+</body>
+
+</html>
